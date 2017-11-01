@@ -1,7 +1,11 @@
 {
   "name": "login_template",
   "version": "1.0.0",
-  "private": true,
+  "description": "This is a template project for NodeJs, Express, Mongo and Json Web Token (JWT) Authentication an registration.",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
   "scripts": {
     "start": "node ./bin/www",
     "test": "mocha tests/**/*.js",
@@ -42,5 +46,24 @@
       "afterEach": false,
       "exist": false
     }
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camiloperezv/jwt-template.git"
+  },
+  "keywords": [
+    "jwt",
+    "jsonwebtoken",
+    "node",
+    "mongo",
+    "authentication",
+    "signup",
+    "template"
+  ],
+  "author": "camiloperezv",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/camiloperezv/jwt-template/issues"
+  },
+  "homepage": "https://github.com/camiloperezv/jwt-template#readme"
 }
