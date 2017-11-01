@@ -1,0 +1,36 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: nodemon bin/www
+    ports:
+     - "3000:3000"
+    tty: true
+    volumes:
+     - .:/app
+     - nodeMod:/app/node_modules
+    networks:
+     - templateNetwork
+    environment:
+     - PORT=3000
+     - NODE_ENV=docker_dev
+    depends_on:
+     - mongo
+  mongo:
+    image: mongo
+    ports:
+     - "27017:27017"
+    volumes:
+      - mongoData:/data/db
+      - mongoConfig:/data/configdb
+    networks:
+     - templateNetwork
+
+volumes:
+  nodeMod:
+  mongoData:
+  mongoConfig:
+
+networks:
+  templateNetwork:
+    driver: bridge
