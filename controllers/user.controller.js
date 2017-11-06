@@ -7,9 +7,9 @@ const signup = function* (req, res) {
       data: jwt
     }).end();
   } catch (e) {
-    return res.json({
+    return res.status(e.status || 405).json({
       error: e.error || 'unable to create the user',
-    }).status(e.status || 405).end();
+    }).end();
   }
 };
 
@@ -20,9 +20,9 @@ const login = function* (req, res) {
       data: jwt,
     }).end();
   } catch (e) {
-    return res.json({
+    return res.status(e.status || 403).json({
       error: e.error || 'unauthorized',
-    }).status(e.status || 403).end();
+    }).end();
   }
 };
 
@@ -31,9 +31,9 @@ const update = function*(req,res){
     let updatedUser = yield User.update(req.user.id, req.body.name, req.body.mobile, req.body.address, req.body.city, req.body.department, req.body.country, req.body.password);
     return res.json(updatedUser).end()
   } catch (e) {
-    return res.json({
+    return res.status(e.status || 405).json({
       error: e.error || 'unable to edit this user',
-    }).status(e.status || 405).end();
+    }).end();
   }
 };
 module.exports = {
