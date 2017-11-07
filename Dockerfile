@@ -1,7 +1,7 @@
 FROM node:8
 RUN yarn global add nodemon
 WORKDIR /tmp
-COPY yarn.lock /tmp
+COPY package.json .
 RUN yarn install
 
 WORKDIR /app
